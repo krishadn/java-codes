@@ -18,7 +18,8 @@ public class ScanFormat {
         try (Scanner s = new Scanner(new FileReader("xanadu.txt"))) {
 
             while (s.hasNext()) {
-                System.out.println(s.next());
+                // System.out.println(s.next());
+                s.next();
             }
 
         }
@@ -41,10 +42,44 @@ public class ScanFormat {
 
             }
 
-            System.out.println(sum);
+            // System.out.println(sum);
 
         }
 
+
+        /* 
+         * Formatting using PrintStream object (i.e. System.out)
+         */
+
+        // using print and println
+        int i = 2;
+        double r = Math.sqrt(i);
+        
+        System.out.print("The square root of ");
+        System.out.print(i);
+        System.out.print(" is ");
+        System.out.print(r);
+        System.out.println(".");
+
+        i = 5;
+        r = Math.sqrt(i);
+        System.out.println("The square root of " + i + " is " + r + ".");
+        
+
+        /* 
+         * using format: uses format string with format specifiers
+         * - all format specifiers begin with a %
+         * - common conversions:
+         *      > d: decimal
+         *      > f: float
+         *      > s: string
+         *      > n: platform-specific line terminator
+         * - all conversions (except %% and %n) should match an argument
+         */
+
+        System.out.format("The square root of %d is %f.%n", i, r);
+        System.out.format("%f, %1$+020.10f %n", Math.PI);
+        System.out.format("%1$,.2f %n", 15203654.15645);
 
 
     }
